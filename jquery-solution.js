@@ -1,24 +1,24 @@
-$(document).ready(function(){
+$(document).ready(function(){   //1. document ready
+  //1.1. Define global variables
   var boxes = $("td");
   var turnText = $(".playerTurn");
   var turnCounter = 0;
   var OMoves = [];
   var XMoves = [];
-
   var winningCombinations = [
     [0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]
   ];
-
+//1.2. Reset Board function must be defined
   var resetBoard = function () {
     boxes.each(function(){
       $(this).text("").attr("class", "");
     });
     turnText.text("It is X's turn");
     turnCounter = 1;
-    OMoves = [];
-    XMoves = [];
+    OMoves = [];   //clearing the O & X on the box and making it empty
+    XMoves = [];   //clearing the O & X on the box and making it empty
   };
-
+//1.3. Game must check for a winner
   var checkForWin = function (movesArray, name) {
     for (var i=0; i < winningCombinations.length; i++) {
       var winCounter = 0;
@@ -45,7 +45,7 @@ $(document).ready(function(){
         turnCounter++;
         checkForWin(XMoves, "X");
       } else {
-        OMoves.push(parseInt(elem.data("num")));
+        OMoves.push(parseInt(elem.data("num"))); // Flip whatever was written on the if statement.
         elem.text("O").addClass("O");
         turnText.text("It is X's turn");
         turnCounter++;
