@@ -20,12 +20,17 @@ $(document).ready(function(){   //1. document ready
   };
 //1.3. Game must check for a winner
   var checkForWin = function (movesArray, name) {
+    // loop through winningCombinations
     for (var i=0; i < winningCombinations.length; i++) {
+      // define winCounter to store how many time we match the combination
       var winCounter = 0;
+      // loop through combinations
       for (var j=0; j < winningCombinations[i].length; j++) {
         if(movesArray.indexOf(winningCombinations[i][j]) !== -1){
+          // if it doesn't return to break out of this loop
           winCounter++;
         }
+        // when the combination loop finished check if winCounter is equal to 3
         if(winCounter === 3){
           alert("Game over, " + name + " wins!");
           resetBoard();
