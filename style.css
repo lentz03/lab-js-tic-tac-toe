@@ -53,3 +53,17 @@ tfoot tr td{
   background: #b8bdee;
   border-color: white;
 }
+
+.X, .O {
+  border-radius: 10px;
+}
+.X {
+  background: red;
+}
+.O {
+  background: blue;
+}
+
+.clear {
+  background: white;
+}
